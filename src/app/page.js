@@ -1,13 +1,27 @@
 'use client';
 
- // any component that uses useAuth needs this because if a component directly imports useAuth, it needs to be a client component since useAuth uses React hooks.
+import { useEffect, useState } from 'react';
+import WeatherDemo from '../components/WeatherDemo';
+import getWeather from '../api/WeatherData';
 
-import { Button } from 'react-bootstrap';
-import { signOut } from '@/utils/auth'; // anything in the src dir, you can use the @ instead of relative paths
-import { useAuth } from '@/utils/context/authContext';
+// any component that uses useAuth needs this because if a component directly imports useAuth, it needs to be a client component since useAuth uses React hooks.
+
+// import { Button } from 'react-bootstrap';
+// import { signOut } from '@/utils/auth'; // anything in the src dir, you can use the @ instead of relative paths
+// import { useAuth } from '@/utils/context/authContext';
 
 function Home() {
-  const { user } = useAuth();
+  // const { user } = useAuth();
+
+  const [weather, setWeather] = useState({});
+
+  const getAllWeather = () => {
+    getWeather().then(setWeather);
+  };
+
+  useEffect(() => {
+    getAllWeather();
+  }, []);
 
   return (
     <div
@@ -19,11 +33,8 @@ function Home() {
         margin: '0 auto',
       }}
     >
-      <h1>Hello {user.displayName}! </h1>
-      <p>Click the button below to logout!</p>
-      <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>
-        Sign Out
-      </Button>
+      Weather Display Page
+      <WeatherDemo weatherObj={weather} />
     </div>
   );
 }
