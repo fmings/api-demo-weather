@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import WeatherDemo from '../components/WeatherDemo';
-import getWeather from '../api/WeatherData';
+// import { useEffect, useState } from 'react';
+// import WeatherDemo from '../components/WeatherDemo';
+// import getWeather from '../api/WeatherData';
 
 // any component that uses useAuth needs this because if a component directly imports useAuth, it needs to be a client component since useAuth uses React hooks.
 
@@ -13,15 +13,23 @@ import getWeather from '../api/WeatherData';
 function Home() {
   // const { user } = useAuth();
 
-  const [weather, setWeather] = useState({});
+  // const [weather, setWeather] = useState(null);
 
-  const getAllWeather = () => {
-    getWeather().then(setWeather);
-  };
+  // const getAllWeather = () => {
+  //   getWeather()
+  //   .then((weatherData) => {
+  //     console.log("Fetched weather data:", weatherData); // Log to verify structure
+  //     if (weatherData.locations) {
+  //       setWeather(weatherData.locations); // Set the locations data if it exists
+  //     } else {
+  //       console.warn('Weather data does not contain "locations" field.');
+  //     }
+  //   })
+  // };
 
-  useEffect(() => {
-    getAllWeather();
-  }, []);
+  // useEffect(() => {
+  //   getAllWeather();
+  // }, [weather]);
 
   return (
     <div
@@ -33,8 +41,8 @@ function Home() {
         margin: '0 auto',
       }}
     >
-      Weather Display Page
-      <WeatherDemo weatherObj={weather} />
+      Home Page
+      {/* <WeatherDemo weatherObj={weather} /> */}
     </div>
   );
 }
