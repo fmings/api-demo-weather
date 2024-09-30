@@ -2,3 +2,25 @@ body {
   background: black;
   color: white;
 }
+
+.firebase-container {
+  background-color: #6e6e6e;
+  width: 50%;
+  margin: 25px auto 25px auto;
+  border-radius: 10px;
+}
+
+.external-api-container {
+  background-color: #6e6e6e;
+  width: 50%;
+  margin: 25px auto 25px auto;
+  border-radius: 10px;
+}
+
+.weather-detail-container {
+  background-color: #5a356e;
+  margin: 10px 20px;
+  border: 2px solid white;
+  padding-top: 10px;
+  border-radius: 10px;
+}

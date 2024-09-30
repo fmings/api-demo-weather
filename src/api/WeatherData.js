@@ -3,9 +3,6 @@
 import { clientCredentials } from '../utils/client';
 
 const externalApiEndpoint = 'https://api.tomorrow.io/v4/weather/forecast?location=tennessee&timesteps=1d&units=imperial&apikey=nRCbE82IdvMS420087Vcl9rxSKXKWWbi';
-// 'https://api.tomorrow.io/v4/weather/forecast?location=new%20york&apikey=nRCbE82IdvMS420087Vcl9rxSKXKWWbi';
-
-const endpoint = clientCredentials.databaseURL;
 
 // Define a function called 'getWeather' that returns a Promise
 const getExternalApiWeather = () =>
@@ -21,6 +18,8 @@ const getExternalApiWeather = () =>
       .then((response) => response.json())
       // If the conversion is successful, pass the data to the 'resolve' function to fulfill the promise
       .then((data) => {
+        // console.warn data to show the data returned from the API
+        console.warn('data', data);
         if (data) {
           resolve(Object.values(data.timelines));
         } else {
@@ -30,6 +29,8 @@ const getExternalApiWeather = () =>
       // If an error occurs at any point, pass it to the 'reject' function to reject the promise
       .catch(reject);
   });
+
+const endpoint = clientCredentials.databaseURL;
 
 const getFirebaseWeather = () =>
   new Promise((resolve, reject) => {
