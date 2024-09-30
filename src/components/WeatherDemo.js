@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function WeatherDemo({ weatherObj }) {
+export default function WeatherDemo({ firebaseWeatherObj }) {
   return (
     <div>
-      <p>Location: {weatherObj.location}</p>
-      <p>Temperature: {weatherObj.temperature}</p>
+      Firebase Data Example:
+      <p>Location: {firebaseWeatherObj.location}</p>
+      <p>Temperature: {firebaseWeatherObj.temperature}</p>
     </div>
   );
 }
@@ -17,7 +18,7 @@ export default function WeatherDemo({ weatherObj }) {
 // };
 
 WeatherDemo.propTypes = {
-  weatherObj: PropTypes.shape({
+  firebaseWeatherObj: PropTypes.shape({
     location: PropTypes.string,
     temperature: PropTypes.string,
   }),
