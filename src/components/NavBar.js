@@ -18,6 +18,9 @@ export default function NavBar() {
             <Link className="nav-link" href="/">
               Home
             </Link>
+            <Link className="nav-link" href="/weather">
+              Weather Demo
+            </Link>
           </Nav>
 
           {/* <Button variant="danger" onClick={signOut}>
