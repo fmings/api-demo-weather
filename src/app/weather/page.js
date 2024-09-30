@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from 'react';
 // import getWeather from '../../api/WeatherData';
+import ExternalApiWeather from '@/components/ExternalApiWeatherDemo';
 import WeatherDemo from '../../components/WeatherDemo';
-import getFirebaseWeather from '../../api/WeatherData';
+import { getFirebaseWeather, getExternalApiWeather } from '../../api/WeatherData';
 
 // any component that uses useAuth needs this because if a component directly imports useAuth, it needs to be a client component since useAuth uses React hooks.
 
@@ -14,29 +15,30 @@ import getFirebaseWeather from '../../api/WeatherData';
 function WeatherPage() {
   // const { user } = useAuth();
 
-  const [weather, setWeather] = useState([]);
+  const [firebaseWeather, setFirebaseWeather] = useState([]);
+  const [externalApiWeather, setExternalApiWeather] = useState([]);
 
   const getAllWeather = () => {
-    getFirebaseWeather().then(setWeather);
+    getFirebaseWeather().then(setFirebaseWeather);
+  };
+
+  const getAllExternalApiWeather = () => {
+    getExternalApiWeather().then(setExternalApiWeather);
   };
 
   useEffect(() => {
     getAllWeather();
+    getAllExternalApiWeather();
   }, []);
 
   return (
-    <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
-      }}
-    >
+    <div className="text-center d-flex flex-column justify-content-center align-content-center">
       Weather Display Page
-      {weather.map((weatherData) => (
-        <WeatherDemo weatherObj={weatherData} key={weatherData.firebaseKey} />
+      {firebaseWeather.map((weatherData) => (
+        <WeatherDemo firebaseWeatherObj={weatherData} key={weatherData.firebaseKey} />
+      ))}
+      {externalApiWeather.map((externalData) => (
+        <ExternalApiWeather externalApiObj={externalData} key={externalData.time} />
       ))}
     </div>
   );
