@@ -5,17 +5,13 @@ export default function WeatherDemo({ firebaseWeatherObj }) {
   return (
     <div>
       Firebase Data Example:
-      <p>Location: {firebaseWeatherObj.location}</p>
-      <p>Temperature: {firebaseWeatherObj.temperature}</p>
+      <div className="weather-detail-container">
+        <p>Location: {firebaseWeatherObj.location}</p>
+        <p>Temperature: {firebaseWeatherObj.temperature}</p>
+      </div>
     </div>
   );
 }
-
-// WeatherDemo.propTypes = {
-//   weatherObj: PropTypes.shape({
-//     locations: PropTypes.string,
-//   }),
-// };
 
 WeatherDemo.propTypes = {
   firebaseWeatherObj: PropTypes.shape({

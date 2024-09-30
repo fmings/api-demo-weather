@@ -6,21 +6,15 @@ export default function ExternalApiWeather({ externalApiObj }) {
     <div>
       External API Data Example:
       {externalApiObj.map((weatherData) => (
-        <>
+        <div className="weather-detail-container">
           <p>Date-Time: {weatherData.time}</p>
           <p>Average Temperature: {weatherData.values.temperatureApparentAvg} </p>
           <p>Average Humidity: {weatherData.values.humidityAvg}</p>
-        </>
+        </div>
       ))}
     </div>
   );
 }
-
-// WeatherDemo.propTypes = {
-//   weatherObj: PropTypes.shape({
-//     locations: PropTypes.string,
-//   }),
-// };
 
 ExternalApiWeather.propTypes = {
   externalApiObj: PropTypes.arrayOf(

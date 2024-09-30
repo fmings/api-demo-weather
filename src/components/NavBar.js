@@ -9,7 +9,7 @@ export default function NavBar() {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Link passHref href="/" className="navbar-brand">
-          CHANGE ME
+          API Demo
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -19,13 +19,9 @@ export default function NavBar() {
               Home
             </Link>
             <Link className="nav-link" href="/weather">
-              Weather Demo
+              Weather API Demo
             </Link>
           </Nav>
-
-          {/* <Button variant="danger" onClick={signOut}>
-              Sign Out
-          </Button> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>
